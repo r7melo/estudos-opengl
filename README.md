@@ -11,8 +11,8 @@ Cada **branch** representa uma etapa do meu desenvolvimento — desde os conceit
 
 | Etapa | Branch | Descrição | Tutorial |
 |:------|:--------|:-----------|:----------|
-| 00 | [`01-configuração`](#) | Tutorial de configuração do projeto. | [📄 Tutorial 01](./docs/00-configuração.md) |
-| 01 | [`01-janela`](#) | Criação da janela gráfica | [📄 Tutorial 01](./docs/01-janela.md) |
+| 00 | [`01-configuração`](#) | Tutorial de configuração do projeto. | [📄 Tutorial 00](./docs/00-configuração.md) |
+| 01 | [`01-janela`](https://github.com/r7melo/estudos-opengl/tree/01-janela) | Criação da janela gráfica | [📄 Tutorial 01](./docs/01-janela.md) |
 | ... | *(novas branches conforme evolução)* | *(descrição futura)* | *(link do doc)* |
 
 ---
