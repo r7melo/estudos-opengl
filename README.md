@@ -25,12 +25,7 @@ A estrutura segue uma metodologia incremental:
 
 | Etapa | Branch | Descrição | Tutorial |
 |:------|:--------|:-----------|:----------|
-| 01 | [`01-primeiros-passos`](link-da-branch) | Compilando e exibindo a primeira janela com OpenGL. | [📄 Tutorial 01](link-do-doc) |
-| 02 | [`02-desenhando-triangulos`](link-da-branch) | Renderização básica e buffers de vértices (VAO, VBO). | [📄 Tutorial 02](link-do-doc) |
-| 03 | [`03-shaders-basicos`](link-da-branch) | Criando e compilando shaders (vertex + fragment). | [📄 Tutorial 03](link-do-doc) |
-| 04 | [`04-transformacoes`](link-da-branch) | Aplicando transformações geométricas (translate, scale, rotate). | [📄 Tutorial 04](link-do-doc) |
-| 05 | [`05-camera-e-projecao`](link-da-branch) | Implementando câmera, perspectiva e movimentação 3D. | [📄 Tutorial 05](link-do-doc) |
-| 06 | [`06-iluminacao-e-texturas`](link-da-branch) | Adicionando luzes e texturas realistas. | [📄 Tutorial 06](link-do-doc) |
+| 01 | [`01-configuração`](#) | Tutorial de configuração do projeto. | [📄 Tutorial 01](./docs/01-configuração.md) |
 | ... | *(novas branches conforme evolução)* | *(descrição futura)* | *(link do doc)* |
 
 ---
