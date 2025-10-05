@@ -37,9 +37,9 @@ Sinta-se à vontade para abrir uma **issue** ou enviar um **pull request** com s
 
 ## 🔗 Referências
 
-- Site oficial: [https://learnopengl.com/](https://learnopengl.com/)
-- Playlist no YouTube (Joey de Vries): [https://www.youtube.com/playlist?list=PLPaoO-vpZnumdcb4tZc4x5Q-v7CkrQ6M-](https://www.youtube.com/playlist?list=PLPaoO-vpZnumdcb4tZc4x5Q-v7CkrQ6M-)
-
+- [Learn OpenGL](https://learnopengl.com/)
+- [Joey de Vries (YouTube)](https://www.youtube.com/playlist?list=PLPaoO-vpZnumdcb4tZc4x5Q-v7CkrQ6M-)
+- [Joey de Vries (GitHub)](https://github.com/VictorGordan/opengl-tutorials)
 ---
 
 
