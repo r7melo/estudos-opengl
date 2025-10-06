@@ -15,6 +15,7 @@ Cada **branch** representa uma etapa do meu desenvolvimento — desde os conceit
 | 01 | [`01-janela`](https://github.com/r7melo/estudos-opengl/tree/01-janela) | Criação da janela gráfica | [📄 Tutorial 01](./docs/01-janela.md) |
 | 02 | [`02-triangulo`](https://github.com/r7melo/estudos-opengl/tree/02-triangulo) | Criação da janela gráfica | [📄 Tutorial 02](./docs/02-triangulo.md) |
 | 03 | [`03-buffer-de-indice`](https://github.com/r7melo/estudos-opengl/tree/03-buffer-de-indice) | Otimização de memória dos vértices | [📄 Tutorial 03](./docs/03-buffer-de-indice.md) |
+| 04 | [`04-organizando`](https://github.com/r7melo/estudos-opengl/tree/04-organizando) | Separando objetos de renderização | [📄 Tutorial 04](./docs/04-organizando.md) |
 | ... | *(novas branches conforme evolução)* | *(descrição futura)* | *(link do doc)* |
 
 ---
