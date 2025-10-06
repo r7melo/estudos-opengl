@@ -30,13 +30,6 @@ int main() {
     // Define o perfil do OpenGL como "CORE" (apenas funções modernas)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	// Define os vértices do triângulo (posição XYZ)
-    GLfloat vertices[] = {
-         -0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Inferior esquerdo
-          0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Inferior direito
-		  0.0f,  0.5f * float(sqrt(3)) * 2 / 3, 0.0f  // Superior
-	};
-
     // Cria uma janela 800x800 chamada "YoutubeOpenGL"
     GLFWwindow* window = glfwCreateWindow(800, 800, "YoutubeOpenGL", NULL, NULL);
 
@@ -75,22 +68,43 @@ int main() {
 	glDeleteShader(vertexShader); // Deleta o Vertex Shader (não é mais necessário após o link)
 	glDeleteShader(fragmentShader); // Deleta o Fragment Shader (não é mais necessário após o link)
 
+    // Define os vértices do triângulo (posição XYZ)
+    GLfloat vertices[] = {
+        -0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Inferior esquerdo
+        0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Inferior direito
+        0.0f,  0.5f * float(sqrt(3)) * 2 / 3, 0.0f,  // Superior
 
-	GLuint VAO, VBO; // Variáveis para o Vertex Array Object e Vertex Buffer Object
+		- 0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inferior esquerdo
+        0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inferior direito
+        0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f  // Superior
+    };
+
+    GLuint indices[] = {
+        0, 3, 5, // Triangulo inferior esquerdo
+        3, 2, 4, // Triangulo inferior direito
+        5, 4, 1  // Triangulo superior
+    };
+
+	GLuint VAO, VBO, EBO; // Variáveis para o Vertex Array Object e Vertex Buffer Object e Element Buffer Object
 
 	glGenVertexArrays(1, &VAO); // Gera o VAO
 	glGenBuffers(1, &VBO); // Gera o VBO
+	glGenBuffers(1, &EBO); // Gera o EBO
 
 	glBindVertexArray(VAO); // Vincula o Vertex Array Object (VAO)
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO); // Garante que o VBO está vinculado antes de configurar os atributos
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); // Copia os dados dos vértices para o buffer
 
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO); // Garante que o EBO está vinculado antes de configurar os atributos
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW); // Copia os dados dos índices para o buffer
+
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0); // Define o formato dos dados de vértices
 	glEnableVertexAttribArray(0); // Habilita o atributo de vértice (posição)
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0); // Desvincula o VBO (opcional)
 	glBindVertexArray(0); // Desvincula o VAO (opcional)
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); // Desvincula o EBO (opcional)
 
 
     // Define a cor de fundo (RGBA: azul escuro)
@@ -108,7 +122,8 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT); // Limpa o buffer de cor
 		glUseProgram(shaderProgram); // Usa o programa de shader
 		glBindVertexArray(VAO); // Vincula o VAO
-		glDrawArrays(GL_TRIANGLES, 0, 3); // Desenha o triângulo
+
+		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0); // Desenha o triângulo
 
 
         // Troca o buffer de fundo com o buffer visível (mostra o resultado na tela)
@@ -120,6 +135,7 @@ int main() {
 
 	glDeleteVertexArrays(1, &VAO); // Deleta o VAO
 	glDeleteBuffers(1, &VBO); // Deleta o VBO
+	glDeleteBuffers(1, &EBO); // Deleta o EBO
 	glDeleteProgram(shaderProgram); // Deleta o programa de shader
 
     // Destroi a janela e libera memória
