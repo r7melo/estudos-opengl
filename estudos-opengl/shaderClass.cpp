@@ -1,4 +1,5 @@
 #include"shaderClass.h"
+#include <iostream>
 
 std::string get_file_contents(const char* filename)
 {
@@ -27,17 +28,19 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile)
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER); // Cria o Vertex Shader
 	glShaderSource(vertexShader, 1, &vertexSource, NULL); // Anexa o código-fonte ao Vertex Shader
 	glCompileShader(vertexShader); // Compila o Vertex Shader
+	compileErrors(vertexShader, "VERTEX"); // Verifica erros de compilação
 
 	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER); // Cria o Fragment Shader
 	glShaderSource(fragmentShader, 1, &fragmentSource, NULL); // Anexa o código-fonte ao Fragment Shader
 	glCompileShader(fragmentShader); // Compila o Fragment Shader
-
+	compileErrors(fragmentShader, "FRAGMENT"); // Verifica erros de compilação
 
 	ID = glCreateProgram(); // Cria o programa de shader
 
 	glAttachShader(ID, vertexShader); // Anexa o Vertex Shader ao programa
 	glAttachShader(ID, fragmentShader); // Anexa o Fragment Shader ao programa
 	glLinkProgram(ID); // Linka o programa de shader
+	compileErrors(ID, "PROGRAM");
 
 	glDeleteShader(vertexShader); // Deleta o Vertex Shader (não é mais necessário após o link)
 	glDeleteShader(fragmentShader); // Deleta o Fragment Shader (não é mais necessário após o link)
@@ -51,4 +54,28 @@ void Shader::Activate()
 void Shader::Delete()
 {
 	glDeleteProgram(ID);
+}
+
+void Shader::compileErrors(unsigned int shader, const char* type)
+{
+	GLint hasCompiled;
+	char infoLog[1024];
+	if (type != "PROGRAM")
+	{
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &hasCompiled);
+		if (hasCompiled == GL_FALSE)
+		{
+			glGetShaderInfoLog(shader, 1024, NULL, infoLog);
+			std::cout << "SHADER_COMPILATION_ERROR for:" << type << "\n" << infoLog << std::endl;
+		}
+	}
+	else
+	{
+		glGetProgramiv(shader, GL_LINK_STATUS, &hasCompiled);
+		if (hasCompiled == GL_FALSE)
+		{
+			glGetProgramInfoLog(shader, 1024, NULL, infoLog);
+			std::cout << "SHADER_LINKING_ERROR for:" << type << "\n" << infoLog << std::endl;
+		}
+	}
 }
