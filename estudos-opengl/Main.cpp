@@ -8,14 +8,14 @@
 #include"EBO.h"
 
 // Define os vértices do triângulo (posição XYZ)
-GLfloat vertices[] = {
-    -0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Inferior esquerdo
-    0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Inferior direito
-    0.0f,  0.5f * float(sqrt(3)) * 2 / 3, 0.0f,  // Superior
-
-    -0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inferior esquerdo
-    0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inferior direito
-    0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f  // Superior
+GLfloat vertices[] = 
+{//|        Coordenadas                         |       Cores          //  
+    -0.50f, -0.5f * float(sqrt(3)) / 3,     0.0f,   0.0f, 1.0f, 0.0f,  // Inferior esquerdo
+     0.50f, -0.5f * float(sqrt(3)) / 3,     0.0f,   1.0f, 0.0f, 0.0f,  // Inferior direito
+     0.00f,  0.5f * float(sqrt(3)) * 2 / 3, 0.0f,   0.0f, 0.0f, 1.0f,  // Superior
+    -0.25f,  0.5f * float(sqrt(3)) / 6,     0.0f,   1.0f, 0.0f, 0.0f,  // Meio esquerdo
+     0.25f,  0.5f * float(sqrt(3)) / 6,     0.0f,   0.0f, 1.0f, 0.0f,  // Meio direito
+     0.00f, -0.5f * float(sqrt(3)) / 3,     0.0f,   0.0f, 0.0f, 1.0f,  // Meio Inferior
 };
 
 GLuint indices[] = {
@@ -63,11 +63,13 @@ int main() {
 	VBO VBO1(vertices, sizeof(vertices));
 	EBO EBO1(indices, sizeof(indices));
     
-	VAO1.LinkVBO(VBO1, 0);
+    VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
+    VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 	VAO1.Unbind();
 	VBO1.Unbind();
 	EBO1.Unbind();
 
+	GLuint uniID = glGetUniformLocation(shaderProgram.ID, "scale"); // Pega o local do uniforme "scale" no shader
 
     // Define a cor de fundo (RGBA: azul escuro)
     glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
@@ -84,6 +86,7 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT); // Limpa o buffer de cor
 		
 		shaderProgram.Activate(); // Ativa o programa de shader
+		glUniform1f(uniID, 1.0f); // Define o valor do uniforme "scale" para 0.5
 		VAO1.Bind(); // Vincula o VAO (prepara o triângulo para ser desenhado)
 
 		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0); // Desenha o triângulo
