@@ -17,6 +17,7 @@ Cada **branch** representa uma etapa do meu desenvolvimento — desde os conceit
 | 03 | [`03-buffer-de-indice`](https://github.com/r7melo/estudos-opengl/tree/03-buffer-de-indice) | Otimização de memória dos vértices | [📄 Tutorial 03](./docs/03-buffer-de-indice.md) |
 | 04 | [`04-organizando`](https://github.com/r7melo/estudos-opengl/tree/04-organizando) | Separando objetos de renderização | [📄 Tutorial 04](./docs/04-organizando.md) |
 | 05 | [`05-shaders`](https://github.com/r7melo/estudos-opengl/tree/05-shaders) | Manipulando as cores dos pixels | [📄 Tutorial 05](./docs/05-shaders.md) |
+| 06 | [`06-texturas`](https://github.com/r7melo/estudos-opengl/tree/06-texturas) | Colocando imagens nos objetos | [📄 Tutorial 06](./docs/06-texturas.md) |
 | ... | *(novas branches conforme evolução)* | *(descrição futura)* | *(link do doc)* |
 
 ---
