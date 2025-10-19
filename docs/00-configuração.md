@@ -51,8 +51,8 @@
     - Em VS++:
 
         ![alt text](./images/01/image-5.png)
-        - Adicione a pasta `include` do projeto em *Include Directories*.
-        - Adicione a pasta `lib` do projeto em *Library Directories*.
+        - Faça referência a pasta include e os globais do windows em **Include Directories**: `$(SolutionDir)libraries\include;$(IncludePath)`
+        - Faça referência a pasta lib e os globais do windows em **Library Directories**: `$(SolutionDir)libraries\lib;$(LibraryPath)`
     - Em Linker->Input:
 
         ![alt text](./images/01/image-6.png)
