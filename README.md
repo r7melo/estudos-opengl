@@ -18,6 +18,7 @@ Cada **branch** representa uma etapa do meu desenvolvimento — desde os conceit
 | 04 | [`04-organizando`](https://github.com/r7melo/estudos-opengl/tree/04-organizando) | Separando objetos de renderização | [📄 Tutorial 04](./docs/04-organizando.md) |
 | 05 | [`05-shaders`](https://github.com/r7melo/estudos-opengl/tree/05-shaders) | Manipulando as cores dos pixels | [📄 Tutorial 05](./docs/05-shaders.md) |
 | 06 | [`06-texturas`](https://github.com/r7melo/estudos-opengl/tree/06-texturas) | Colocando imagens nos objetos | [📄 Tutorial 06](./docs/06-texturas.md) |
+| 07 | [`07-objeto3d`](https://github.com/r7melo/estudos-opengl/tree/07-objeto3d) | Criando pirâmide 3D | [📄 Tutorial 07](./docs/07-objeto3d.md) |
 | ... | *(novas branches conforme evolução)* | *(descrição futura)* | *(link do doc)* |
 
 ---
